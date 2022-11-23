@@ -1,0 +1,43 @@
+<div class="container">
+    <h1>User Registration</h1>
+    <form #reg="ngForm" (ngSubmit)="submit()">
+        <div class="form-group">
+             <label for="firstname">FirstName*</label><br>
+             <input #firstname="ngModel" required type="text" name="firstname" class="formControl" ngModel><br>
+             <span *ngIf="firstname.touched&&firstname.invalid"><font color="red">First name required!</font></span>
+            </div>
+        <pre></pre>
+        <div class="form-group">
+          <label for="middlename">MiddleName</label><br>
+          <input  type="text" name="middlename" class="formControl" ngModel>
+        </div>
+     <pre></pre>
+        <div class="form-group">
+            <label for="lastname">LastName*</label><br>
+            <input #lastname="ngModel" required type="text" name="lastname" class="formControl" ngModel><br>
+            <span *ngIf="lastname.touched&&lastname.invalid"><font color="red">Last name required!</font></span>
+       </div>
+       <pre></pre>
+       <div class="form-group">
+        <label for="email">Email*</label><br>
+        <input   id="email" type="text" #email="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name="email" class="formControl" ngModel>
+        <div class="md-errors-spacer" [hidden]="email.valid || email.untouched">
+          <div  *ngIf="email.errors && email.errors?.['required']">
+            <font color="red">Email is required!</font>
+          </div>
+          <div  *ngIf="email.errors && email.errors?.['pattern']">
+            <font color="red">Email is invalid!</font>
+          </div>
+      </div>
+      </div>
+      <pre></pre>
+      <div class="form-group">
+        <label for="password">Password</label><br>
+        <input  type="text" name="password" class="formControl" ngModel>
+      </div>
+      <pre></pre>
+      <button class="btn-btn-primary btn-block" type="submit" value="Submit">Submit</button>
+    </form>
+  </div>
+  <br>
+   
